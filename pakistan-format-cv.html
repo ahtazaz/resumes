@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahtazaz Ahmad Mughal - Senior Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-item a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #3498db;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 0;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-left: 1px solid #e9ecef;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .project-item:hover, .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .job-title, .project-title, .degree {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company, .institution {
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+
+        .period, .location {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .achievements {
+            margin-top: 15px;
+        }
+
+        .achievement-category {
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 15px 0 8px 0;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievement-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .achievement-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .achievement-badge {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .achievement-badge .title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .achievement-badge .description {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .main-content, .sidebar {
+                padding: 20px;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <h1 class="name">Ahtazaz Ahmad Mughal</h1>
+            <p class="title">Senior Software Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:ahtazazahmad1@gmail.com">ahtazazahmad1@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+923451525359</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Islamabad || Lahore, Pakistan</span>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <a href="https://github.com/ahtazaz" target="_blank">github.com/ahtazaz</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <main class="main-content">
+                <section class="section">
+                    <div class="summary">
+                        As a computer science major, I address non-trivial and highly technical issues. I enjoy solving problems and look at things a bit differently than most people. My ability to analyze issues enables me to work with colleagues from various disciplines, and I am pleased that I will be providing solutions that matter.
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">Senior Software Engineer</h3>
+                        <p class="company">NextBridge</p>
+                        <p class="period">05/2022 - Present | Lahore, Pakistan</p>
+                        
+                        <div class="achievements">
+                            <div class="achievement-category">Backend Development:</div>
+                            <ul class="achievement-list">
+                                <li>Developed RESTful APIs using the <span class="highlight">NestJS framework</span> and implemented advanced authentication and authorization strategies alongside comprehensive data validation and Documentation.</li>
+                                <li>Developed versatile database schemas and performed optimization of queries through <span class="highlight">PrismaORM</span> for MySQL/PostgreSQL.</li>
+                                <li>Set up advanced logging capabilities and error handling for easier debugging and monitoring.</li>
+                            </ul>
+                            
+                            <div class="achievement-category">Frontend Development:</div>
+                            <ul class="achievement-list">
+                                <li>Constructed dynamic web pages with the help of <span class="highlight">React.js</span> alongside conventional JavaScript and Typescript.</li>
+                                <li>Used Axios/Fetch to connect REST APIs to frontend web applications.</li>
+                            </ul>
+                            
+                            <div class="achievement-category">Deployment:</div>
+                            <ul class="achievement-list">
+                                <li>Managed automated deployment processes with <span class="highlight">Bitbucket Pipelines</span> for CI/CD.</li>
+                                <li>Built and configured applications with <span class="highlight">Docker</span> for easier deployment.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="job-title">Software Engineer</h3>
+                        <p class="company">Agile Vectors</p>
+                        <p class="period">05/2020 - 04/2022 | Islamabad, Pakistan</p>
+                        
+                        <div class="achievements">
+                            <ul class="achievement-list">
+                                <li>Develop Back end website architecture (<span class="highlight">Node.js, ASP.NET</span>).</li>
+                                <li>Develop front end website architecture (<span class="highlight">React.js</span>).</li>
+                                <li>Creating new services to automate different tasks (<span class="highlight">Python</span>).</li>
+                                <li>Deploy Applications on Server.</li>
+                                <li>Support Role on Android Application (<span class="highlight">Java</span>).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Projects</h2>
+                    
+                    <div class="project-item">
+                        <h3 class="project-title">Secure Enterprise Communication Platform</h3>
+                        <ul class="achievement-list">
+                            <li>Led development of a secure, enterprise-grade communication platform with a focus on user privacy, seamless UX, and performance.</li>
+                            <li>Designed a responsive, modern UI for Web.</li>
+                            <li>Built an innovative email system with recipient verification to prevent data breaches.</li>
+                            <li>Integrated <span class="highlight">QERDS mailing (eIDAS-compliant)</span> for legally binding communications.</li>
+                            <li>Developed flexible subscription billing with multi-gateway support.</li>
+                            <li>Created a robust admin panel with granular RBAC for policy control.</li>
+                            <li>Implemented end-to-end encrypted secure note sharing.</li>
+                            <li>Built a high-performance file-sharing system supporting up to <span class="highlight">5TB transfers</span>.</li>
+                            <li>Architected a scalable, containerized cloud infrastructure.</li>
+                            <li>Enhanced UX with real-time notifications and interactive dashboards.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3 class="project-title">Real-Time Customer Support Chat Platform</h3>
+                        <ul class="achievement-list">
+                            <li><strong>Developed a real-time chat system using MERN and Socket.io</strong>, featuring client-side popups for users, agent-side live chat handling, and an admin panel for conversation management; <strong>deployed the React frontend on IIS</strong>, ensuring smooth production delivery within enterprise environments.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3 class="project-title">gMandi – Agricultural Marketplace Platform</h3>
+                        <ul class="achievement-list">
+                            <li>Developed <strong>Node.js RESTful APIs</strong>, enhanced the <strong>Android app</strong>, maintained the <strong>React.js web app</strong>, and built an <strong>admin panel</strong> for managing users and listings.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3 class="project-title">Notification Management System – Enterprise Messaging Platform</h3>
+                        <ul class="achievement-list">
+                            <li>Built a scalable notification system using <strong>React</strong> and <strong>.NET</strong>, supporting <strong>email, SMS, and in-app alerts</strong> with <strong>dynamic templates</strong> and <strong>scheduled delivery</strong>. Utilized <strong>MSMQ</strong> for asynchronous processing and deployed on <strong>Windows Server</strong>.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <h3 class="degree">Master of Science (MCS)</h3>
+                        <p class="institution">University of Azad Kashmir, Muzaffarabad</p>
+                        <p class="period">10/2018 - 10/2020 | CGPA: 3.85/4</p>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <section class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Node JS</div>
+                        <div class="skill-item">Express</div>
+                        <div class="skill-item">Nest JS</div>
+                        <div class="skill-item">Redis</div>
+                        <div class="skill-item">React JS</div>
+                        <div class="skill-item">TypeScript</div>
+                        <div class="skill-item">Docker</div>
+                        <div class="skill-item">Microservices</div>
+                        <div class="skill-item">BullMQ</div>
+                        <div class="skill-item">Ubuntu/CentOS</div>
+                        <div class="skill-item">Window Server</div>
+                        <div class="skill-item">NPM Registries</div>
+                        <div class="skill-item">MySQL</div>
+                        <div class="skill-item">MongoDB</div>
+                        <div class="skill-item">Jira</div>
+                        <div class="skill-item">Git</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Achievements</h2>
+                    <div class="achievement-badge">
+                        <div class="title">🏆 Gold Medalist</div>
+                        <div class="description">Gold medalist from University of Azad Kashmir Muzaffarabad.</div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
