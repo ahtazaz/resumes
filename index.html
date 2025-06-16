@@ -63,6 +63,29 @@
             font-size: 0.9em;
             text-align: center;
             margin-left: auto;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-radius: 1px;
+        }
+
+        .photo-placeholder:empty::before {
+            content: '[Photo]';
+        }
+
+        .photo-container {
+            width: 120px;
+            height: 150px;
+            flex-shrink: 0;
         }
 
         .content {
@@ -304,6 +327,10 @@
                 text-align: center;
             }
             
+            .photo-container {
+                margin: 0 auto;
+            }
+            
             .photo-placeholder {
                 margin: 0 auto;
             }
@@ -342,8 +369,10 @@
                 <h1>Ahtazaz Ahmad Mughal</h1>
                 <p class="subtitle">Senior Software Engineer</p>
             </div>
-            <div class="photo-placeholder">
-                [Photo]
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                  <img src="mypic.JPG" alt="Ahtazaz Ahmad Mughal">
+                </div>
             </div>
         </header>
 
@@ -448,19 +477,94 @@
 
             <section class="section">
                 <h2 class="section-title">Key Projects</h2>
-                
+               
                 <div class="project-item">
                     <div class="project-header">
                         <div class="project-title">Secure Enterprise Communication Platform</div>
+                        <div class="company">NextBridge Ltd.</div>
                     </div>
                     <div class="description">
+                        <p style="margin-bottom: 12px; font-style: italic;">Led the development of a robust enterprise-grade communication platform focusing on enhanced security, user privacy, and exceptional user experience.</p>
                         <ul class="responsibility-list">
-                            <li>Led development of enterprise-grade communication platform focusing on user privacy and performance</li>
-                            <li>Implemented <span class="highlight">QERDS mailing (eIDAS-compliant)</span> for legally binding communications</li>
-                            <li>Built high-performance file-sharing system supporting up to <span class="highlight">5TB transfers</span></li>
-                            <li>Developed robust admin panel with granular RBAC for policy control</li>
-                            <li>Architected scalable, containerized cloud infrastructure</li>
+                            <li>Designed and implemented an intuitive, modern user interface with <span class="highlight">responsive design principles</span>, resulting in seamless user experience across desktop and mobile devices</li>
+                            <li>Developed an innovative <span class="highlight">email security system with recipient verification protocols</span> before message delivery, significantly reducing the risk of data breaches and misdirected communications</li>
+                            <li>Added <span class="highlight">QERDS mailing (eIDAS-compliant)</span> for legally binding electronic communication widely used across Europe</li>
+                            <li>Introduced a flexible <span class="highlight">subscription system integrated with multiple payment gateways</span>, enabling organizations to manage billing across various providers</li>
+                            <li>Engineered a comprehensive <span class="highlight">SaaS administration panel with granular RBAC</span>, enabling organizations to manage user permissions and security policies efficiently</li>
+                            <li>Implemented an <span class="highlight">enterprise-grade secure note-sharing system with end-to-end encryption</span>, ensuring confidential information remains protected throughout transmission</li>
+                            <li>Created a high-performance <span class="highlight">file-sharing infrastructure capable of handling files up to 5TB</span> with minimal latency, while maintaining end-to-end encryption</li>
+                            <li>Architected a scalable infrastructure using <span class="highlight">containerization and modern cloud technologies</span>, ensuring high availability and consistent performance</li>
+                            <li>Enhanced user engagement through interactive dashboards and real-time notifications, leading to improved workflow efficiency and user adoption</li>
                         </ul>
+                        <div style="margin-top: 12px; font-size: 0.9em; color: #7f8c8d;">
+                            <strong>Technologies:</strong> NestJS, React.js, TypeScript, milter, Node.js, CI/CD, Email Server, Prisma ORM
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Multi-Tenant School Management System</div>
+                        <div class="company">NextBridge Ltd.</div>
+                    </div>
+                    <div class="description">
+                        <p style="margin-bottom: 12px; font-style: italic;">Worked as a Frontend Developer (React.js) on a scalable school management platform built with Laravel and Inertia.js, focusing on results processing, reporting, and tenant-specific customization.</p>
+                        <ul class="responsibility-list">
+                            <li>Developed core <span class="highlight">React.js components and frontend logic using Inertia.js</span>, integrating tightly with the Laravel backend to deliver a smooth single-page application experience</li>
+                            <li>Designed and implemented the <span class="highlight">results and reporting engine</span>, supporting subjects with nested grading structures (categories and sub-categories like theory, practical, attendance)</li>
+                            <li>Built dynamic workflows for mark entry, grade calculation, and report generation, with <span class="highlight">real-time validation</span> and intuitive feedback</li>
+                            <li>Implemented a <span class="highlight">tenant-based theming system</span>, allowing each school to have its own color scheme, branding, and identity across the platform</li>
+                            <li>Focused on integration, state management, and business logic implementation; collaborated with dedicated UI developers for layout and styling</li>
+                            <li>Supported <span class="highlight">role-based views</span> for teachers, admins, and students, ensuring correct data access and visibility</li>
+                            <li>Ensured smooth functionality within a <span class="highlight">multi-tenant environment</span>, maintaining isolated configurations per institution</li>
+                        </ul>
+                        <div style="margin-top: 12px; font-size: 0.9em; color: #7f8c8d;">
+                            <strong>Technologies:</strong> React.js, Inertia.js, Laravel, PHP, JavaScript, Multi-Tenancy, Dynamic Theming, RBAC, Form Logic, API Integration
+                        </div>
+                    </div>
+                </div>
+ 
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Modern Online Tenant Management System</div>
+                        <div class="company">NextBridge Ltd.</div>
+                    </div>
+                    <div class="description">
+                        <p style="margin-bottom: 12px; font-style: italic;">Led the development of a modern, scalable tenant management platform designed to streamline rental processes while maintaining strict security, performance, and auditability standards across a distributed microservices ecosystem.</p>
+                        <ul class="responsibility-list">
+                            <li>Designed a <span class="highlight">microservices-based architecture using NestJS</span>, enabling independent service scaling, resilience, and streamlined deployment</li>
+                            <li>Implemented the <span class="highlight">CQRS pattern with event sourcing</span> using PostgreSQL and EventStoreDB, ensuring secure, immutable event history and high-integrity data reconstruction</li>
+                            <li>Integrated <span class="highlight">Ory Kratos</span> for advanced identity and authentication management, providing secure, customizable user flows including registration, login, MFA, and password recovery</li>
+                            <li>Used <span class="highlight">Ory Keto (Google Zanzibar-inspired)</span> to implement centralized, fine-grained authorization system with complex role and permission hierarchies</li>
+                            <li>Engineered an <span class="highlight">RBAC model aligned with multi-tenant architecture</span>, enabling secure delegation of permissions between landlords, tenants, and support teams</li>
+                            <li>Developed event-driven asynchronous workflows using <span class="highlight">queues (RabbitMQ/Kafka)</span> for operations such as document signing, rent invoicing, and notification delivery at scale</li>
+                            <li>Built interactive admin dashboards and tenant portals with real-time updates and granular user insights</li>
+                            <li>Deployed using <span class="highlight">Docker with CI/CD pipelines</span> to ensure automated testing, integration, and zero-downtime releases</li>
+                        </ul>
+                        <div style="margin-top: 12px; font-size: 0.9em; color: #7f8c8d;">
+                            <strong>Technologies:</strong> NestJS, PostgreSQL, EventStoreDB, Docker, TypeScript, Prisma ORM, Ory Kratos, Ory Keto, CQRS, Microservices, RBAC
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Notification Management System – Enterprise Messaging Platform</div>
+                        <div class="company">Agile Vectors</div>
+                    </div>
+                    <div class="description">
+                        <p style="margin-bottom: 12px; font-style: italic;">Designed and developed a customizable notification system supporting email, SMS, and in-app notifications for large-scale organizations.</p>
+                        <ul class="responsibility-list">
+                            <li>Built a scalable notification system using <span class="highlight">React and .NET</span>, supporting <span class="highlight">email, SMS, and in-app alerts</span> with dynamic templates and scheduled delivery</li>
+                            <li>Enabled users to schedule multiple notifications with support for <span class="highlight">dynamic templates and multi-channel delivery</span></li>
+                            <li>Implemented <span class="highlight">MSMQ for reliable and asynchronous message queuing</span> and processing to handle high-volume notification delivery</li>
+                            <li>Built responsive frontend interface in React ensuring intuitive user experience for notification configuration and management</li>
+                            <li>Deployed on <span class="highlight">Windows Server</span> for enterprise-grade hosting and scalability</li>
+                            <li>Designed robust backend performance architecture to handle enterprise-level notification volumes</li>
+                        </ul>
+                        <div style="margin-top: 12px; font-size: 0.9em; color: #7f8c8d;">
+                            <strong>Technologies:</strong> React, .NET, MSMQ, Windows Server, Multi-channel Messaging, Dynamic Templates
+                        </div>
                     </div>
                 </div>
 
